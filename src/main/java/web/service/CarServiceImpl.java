@@ -24,15 +24,21 @@ public class CarServiceImpl {
 
     }
 
-    public List<Car> getCars(){
-        return carList;
+//    public List<Car> getCars(){
+//        return carList;
+//
+//    }
 
-    }
+    public List<Car> getCarsByCount(Integer count) {
+        if (count != null) {
+            List<Car> cars = carList.stream().limit(count).collect(Collectors.toList());
+            System.out.println(cars);
+            return cars;
+        }
+        else {
+            return carList;
+        }
 
-    public List<Car> getCarsByCount(int count) {
-        List<Car> cars = carList.stream().limit(count).collect(Collectors.toList());
-        System.out.println(cars);
-        return cars;
     }
 
 
